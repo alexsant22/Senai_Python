@@ -20,3 +20,5 @@ def jogo_adivinhacao():
 
     if (tentativas == max_tentativas):
         print(f"Fim de jogo. O número secreto era: {num_secreto}")
+
+jogo_adivinhacao()
