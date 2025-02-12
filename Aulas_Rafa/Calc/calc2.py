@@ -16,6 +16,7 @@ def calcular():
         # Substituir o '^' por '**' para operação de exponenciação
         expression = visor.get().replace('^', '**')
         result = eval(expression)
+        result = round(result,2)
         visor.set(result)
     except Exception as e:
         visor.set("Erro")
@@ -25,6 +26,7 @@ def raiz_quadrada():
     try:
         current = float(visor.get())
         result = math.sqrt(current)
+        result = round(result,2)
         visor.set(result)
     except Exception as e:
         visor.set("Erro")
@@ -49,11 +51,11 @@ entry.grid(row=0, column=0, columnspan=4)
 
 # Definindo os botões
 buttons = [
-    ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
-    ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
-    ('1', 3, 0), ('2', 3, 1), ('3', 3, 2), ('-', 3, 3),
-    ('0', 4, 0), ('C', 4, 1), ('←', 4, 2), ('+', 4, 3),
-    ('.', 5, 0), ('^', 5, 1), ('√', 5, 2), ('=', 5, 3),  # Exponenciação, Raiz e Backspace
+    ('.', 1, 0), ('^', 1, 1), ('√', 1, 2), ('=', 1, 3),  # Exponenciação, Raiz e Backspace
+    ('7', 2, 0), ('8', 2, 1), ('9', 2, 2), ('/', 2, 3),
+    ('4', 3, 0), ('5', 3, 1), ('6', 3, 2), ('*', 3, 3),
+    ('1', 4, 0), ('2', 4, 1), ('3', 4, 2), ('-', 4, 3),
+    ('0', 5, 0), ('C', 5, 1), ('←', 5, 2), ('+', 5, 3),
 ]
 
 # Adicionando os botões à janela
