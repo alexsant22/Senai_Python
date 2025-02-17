@@ -1,16 +1,27 @@
 import requests
 
-url = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
+urlDolar = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
+urlReal = "https://economia.awesomeapi.com.br/json/last/BRL-USD"
 
-response = requests.get(url)
+responseDolar = requests.get(urlDolar)
+responseReal = requests.get(urlReal)
 
-dados = response.json()
+dadosDolar = responseDolar.json()
+dadosReal = responseReal.json()
 
-#print(dados["USDBRL"]["bid"])
+dolar = float(dadosDolar["USDBRL"]["bid"])
+real = float(dadosReal["BRLUSD"]["bid"])
 
-dolar = float(dados["USDBRL"]["bid"])
+escolha = int(input("Digite 1 para converter Dolar para Real\nDigite 2 para converter Real para dolar:\n"))
 
-real = float(input("Digite o valor em doláres: "))
-resultado = real * dolar
-
-print(f"O valor {real} USD fica: {resultado} BRL")
+match escolha:
+    case 1:
+        inputUser = float(input("Digite o valor em doláres: "))
+        resultado = inputUser * dolar
+        print(f"O valor {inputUser} USD fica: {resultado} BRL")
+    case 2:
+        inputUser = float(input("Digite o valor em reais: "))
+        resultado = inputUser * real
+        print(f"O valor {inputUser} BRL fica: {resultado} USD")
+    case _:
+        print("Opção inválida.")
