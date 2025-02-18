@@ -19,3 +19,9 @@ match escolha:
         user = float(input("Digite em reais: "))
         resultado = user * real
         print(f'Valor do bitcoin: {resultado}')
+    case 2:
+        user = float(input("Digite em doláres"))
+        resultado = user * dolar
+        print(f"Valor do bitcoin: {resultado}")
+    case _:
+        print("Opção inválida!")
