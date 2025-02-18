@@ -1,4 +1,5 @@
 import csv
+import os
 
 # Passo 1: Criar arquivo csv
 dados_iniciais = [
@@ -28,3 +29,5 @@ with open('text.csv', mode='r') as arquivo:
     leitor_csv = csv.reader(arquivo)
     for linha in leitor_csv:
         print(linha)
+
+print("Diretório atual", os.getcwd())
